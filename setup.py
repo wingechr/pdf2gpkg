@@ -24,5 +24,6 @@ if __name__ == "__main__":
             "Operating System :: OS Independent",
         ],
         entry_points={"console_scripts": ["pdf2gpkg = pdf2gpkg.__main__:main"]},
-        package_data={"pdf2gpkg": ["ref/**"]},
+        include_package_data=True,
+        package_data={"pdf2gpkg": ["ref/**/*"]},
     )
