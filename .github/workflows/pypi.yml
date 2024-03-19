@@ -1,11 +1,7 @@
 name: publish
 
 on:
-  workflow_run:
-    branches:
-      - master
-    types:
-      - completed
+  branches:
 
 jobs:
   publish:
