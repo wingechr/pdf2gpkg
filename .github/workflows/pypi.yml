@@ -1,7 +1,8 @@
 name: publish
 
 on:
-  branches:
+  push:
+    branches: master
 
 jobs:
   publish:
