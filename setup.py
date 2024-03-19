@@ -12,7 +12,7 @@ if __name__ == "__main__":
         description="extract and georeference geometry from pdf",
         long_description=long_description,
         long_description_content_type="text/markdown",
-        version="0.0.4",
+        version="0.0.5",
         author="Christian Winger",
         url="https://github.com/wingechr/pdf2gpkg",
         author_email="c@wingechr.de",
