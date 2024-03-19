@@ -14,6 +14,7 @@ if __name__ == "__main__":
         long_description_content_type="text/markdown",
         version="0.0.2",
         author="Christian Winger",
+        url="https://github.com/wingechr/pdf2gpkg",
         author_email="c@wingechr.de",
         platforms=["any"],
         license="Public Domain",
