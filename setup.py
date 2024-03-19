@@ -1,4 +1,4 @@
-from setuptools import find_packages, setup
+from setuptools import setup
 
 if __name__ == "__main__":
     with open("README.md", encoding="utf-8") as file:
@@ -6,7 +6,7 @@ if __name__ == "__main__":
 
     setup(
         name="pdf2gpkg",
-        packages=find_packages(),
+        packages=["pdf2gpkg"],
         keywords=[],
         install_requires=["PyMuPDF", "geopandas", "shapely"],
         description="extract and georeference geometry from pdf",

@@ -29,6 +29,10 @@ Matrix = (
 """
 
 
+def get_reference_maps():
+    return os.listdir(BASE_DIR_REF)
+
+
 def combine_affine_transform(t1: List, t2: List):
     xx, xy, x0, yx, yy, y0 = t1
     m1 = np.array([[xx, xy, x0], [yx, yy, y0], [0, 0, 1]])
@@ -146,7 +150,13 @@ def save_json(transform, filepath):
         json.dump(transform, file)
 
 
-def copy_template(out_dir, ref_name=DEFAULT_REF_NAME):
+def copy_template(out_dir, ref_name):
+    ref_names = get_reference_maps()
+    if ref_name not in ref_names:
+        raise Exception(
+            f"reference map {ref_name} not found. Available options are: {ref_names}"
+        )
+
     # create output dir
     os.makedirs(out_dir, exist_ok=True)
     # copy ref template
@@ -320,9 +330,13 @@ def extract_page_geoemtry(pdf_path, out_dir, page_no=1, curve_density=1):
     save_json(transform_crs, transform_file)
 
 
-def pdf2gpkg(source_pdf, target_dir, page_no=1, curve_density=1.0):
+def pdf2gpkg(
+    source_pdf, target_dir, page_no=1, curve_density=1.0, ref_name=DEFAULT_REF_NAME
+):
+    if not os.path.exists(source_pdf):
+        raise FileNotFoundError(source_pdf)
     if not os.path.exists(target_dir):
-        copy_template(target_dir)
+        copy_template(target_dir, ref_name)
     extract_page_geoemtry(
         source_pdf, target_dir, page_no=page_no, curve_density=curve_density
     )
