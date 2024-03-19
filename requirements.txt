@@ -1,0 +1,7 @@
+# install package itself to install it's dependencies
+.
+
+# development tools
+bumpversion
+pip
+setuptools
