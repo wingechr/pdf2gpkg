@@ -22,6 +22,6 @@ if __name__ == "__main__":
             "License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
             "Operating System :: OS Independent",
         ],
-        entry_points={"console_scripts": ["pdf2gpkg = pdf2gpkg.__main__:main_cmd"]},
+        entry_points={"console_scripts": ["pdf2gpkg = pdf2gpkg.__main__:main"]},
         package_data={"pdf2gpkg": ["ref/**"]},
     )
